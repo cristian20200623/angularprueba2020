@@ -8,6 +8,8 @@ import { FormControl } from '@angular/forms';
 })
 export class ProductFormComponent implements OnInit {
 
+  emailCtrl = new FormControl('', []);
+
   constructor() { }
 
   ngOnInit(): void {
