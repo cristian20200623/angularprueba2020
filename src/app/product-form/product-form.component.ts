@@ -43,7 +43,7 @@ export class ProductFormComponent implements OnInit {
   }
 
   SendAddToCartEvent(){
-    this.googleAnalyticsService.eventEmitter("search", "barreras_comerciales", "cart", "click", 1);
+    this.googleAnalyticsService.eventEmitter("search", "barreras_comerciales", "cart", "click", 12);
     console.log("Evento Click test!!");
   }
 }
