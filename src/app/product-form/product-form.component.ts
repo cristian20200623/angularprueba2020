@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup , Validators , FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
+import{ GoogleAnalyticsService } from '../google-analytics.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class ProductFormComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor() { 
+  constructor(public googleAnalyticsService: GoogleAnalyticsService) { 
     this.buildForm();
   }
 
@@ -39,5 +40,9 @@ export class ProductFormComponent implements OnInit {
     event.preventDefault();
     const value = this.form.value;
     console.log(value);
+  }
+
+  SendAddToCartEvent(){
+    this.googleAnalyticsService.eventEmitter("add_to_cart", "shop", "cart", "click", 1);
   }
 }
