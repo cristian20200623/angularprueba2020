@@ -26,7 +26,6 @@ import {GoogleAnalyticsService} from './google-analytics.service';
   ],
   providers: [
     GoogleAnalyticsService
-    {provide: 'googleTagManagerId', useValue: ''}
   ], 
   bootstrap: [AppComponent]
 })
