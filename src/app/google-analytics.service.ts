@@ -32,7 +32,7 @@ export class GoogleAnalyticsService {
     });
     */
    gtag('event', 'enviar', { 
-      'event_category': 'suscripcion', 'event_label': 'inicio', 'value': 'haciendopruebas'});
+      'event_category': 'busqueda_barrera', 'event_label': 'inicio', 'value': 'haciendopruebas'});
 
     }
 }
