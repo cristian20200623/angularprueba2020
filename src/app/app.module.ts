@@ -24,7 +24,10 @@ import {GoogleAnalyticsService} from './google-analytics.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [GoogleAnalyticsService],
+  providers: [
+    GoogleAnalyticsService
+    {provide: 'googleTagManagerId', useValue: ''}
+  ], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
