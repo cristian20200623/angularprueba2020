@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup , Validators , FormControl } from '@angular/forms';
+import { debounceTime } from 'rxjs/operators';
 
 
 @Component({
@@ -9,11 +10,28 @@ import { FormBuilder, FormGroup , Validators , FormControl } from '@angular/form
 })
 export class ProductFormComponent implements OnInit {
 
-  emailCtrl = new FormControl('', []);
+  form: FormGroup;
 
-  constructor() { }
+  constructor() { 
+    this.buildForm();
+  }
 
   ngOnInit(): void {
   }
 
+  private buildForm() {
+    this.form = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      date: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.email]),
+      text: new FormControl('', [Validators.maxLength(200)]),
+      category: new FormControl('', [Validators.required]),
+      gender: new FormControl('', [Validators.required]),
+    });
+
+    this.form.valueChanges.pipe(debounceTime(500))
+    .subscribe(value => {
+      console.log(value);
+    });
+  }
 }
