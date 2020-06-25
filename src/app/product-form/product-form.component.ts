@@ -34,4 +34,10 @@ export class ProductFormComponent implements OnInit {
       console.log(value);
     });
   }
+
+  save(event: Event) {
+    event.preventDefault();
+    const value = this.form.value;
+    console.log(value);
+  }
 }

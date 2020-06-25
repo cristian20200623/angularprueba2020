@@ -1,4 +1,4 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="save($event)">
   <p>
     Name: <br/>
     <input type="text" formControlName="name">
@@ -29,4 +29,6 @@
     <input type="radio" name="gender" formControlName="gender" value="female"> Female<br>
     <input type="radio" name="gender" formControlName="gender" value="other"> Other
   </p>
+
+  <button type="submit">Guardar</button> 
 </form>
