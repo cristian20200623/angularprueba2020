@@ -15,13 +15,15 @@ export class GoogleAnalyticsService {
     eventAction: string, 
     eventLabel: string = null,  
     eventValue: number = null ){ 
-      
+      /*
          gtag('event', eventName, { 
                  eventCategory: eventCategory, 
                  eventLabel: eventLabel, 
                  eventAction: eventAction, 
                  eventValue: eventValue
                })
+               */
+
     /*
      gtag('event', eventName, {
       'event_category': eventCategory,
@@ -29,5 +31,8 @@ export class GoogleAnalyticsService {
       'value': eventValue
     });
     */
+   gtag('event', 'enviar', { 
+      'event_category': 'suscripcion', 'event_label': 'inicio', 'value': '1234'});
+
     }
 }
