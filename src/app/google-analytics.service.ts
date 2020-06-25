@@ -34,14 +34,14 @@ export class GoogleAnalyticsService {
    /*
    gtag('event', 'enviar', { 
       'event_category': 'busqueda_barrera', 'event_label': 'inicio', 'value': 'haciendopruebas'});
-
-    }
     */
-   // Configure a target
+
+    // Configure a target
 gtag('config', 'GA_MEASUREMENT_ID_1');
 gtag('config', 'GA_MEASUREMENT_ID_2', { 'groups': 'agency' });
 gtag('config', 'GA_MEASUREMENT_ID_3', { 'groups': 'agency' });
 
 // Route this sign_in event to Analytics IDs in the 'agency' group:
 gtag('event', 'sign_in', { 'send_to': 'agency' });
+    }
 }
