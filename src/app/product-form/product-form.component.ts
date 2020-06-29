@@ -12,6 +12,7 @@ import{ GoogleAnalyticsService } from '../google-analytics.service';
 export class ProductFormComponent implements OnInit {
 
   form: FormGroup;
+  dataLayer = [];
 
   constructor(public googleAnalyticsService: GoogleAnalyticsService) { 
     this.buildForm();
@@ -43,6 +44,12 @@ export class ProductFormComponent implements OnInit {
   }
 
   SendAddToCartEvent(){
+
+    this.dataLayer.push({
+      'bookCategory': 'fiction',
+      'bookTitle': 'Cien años de soledad',
+      'bookAuthor': 'Gabriel García Márquez'
+  });
     //this.googleAnalyticsService.eventEmitter("search", "barreras_comerciales", "cart", "click", 12);
     console.log("Evento Click test!!");
   }
