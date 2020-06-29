@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup , Validators , FormControl } from '@angular/form
 import { debounceTime } from 'rxjs/operators';
 import{ GoogleAnalyticsService } from '../google-analytics.service';
 
+declare global {
+  interface Window { dataLayer: any[]; }
+}
 
 @Component({
   selector: 'app-product-form',
@@ -12,9 +15,11 @@ import{ GoogleAnalyticsService } from '../google-analytics.service';
 export class ProductFormComponent implements OnInit {
 
   form: FormGroup;
-  dataLayer = [];
+
+  
 
   constructor(public googleAnalyticsService: GoogleAnalyticsService) { 
+    
     this.buildForm();
   }
 
@@ -45,7 +50,7 @@ export class ProductFormComponent implements OnInit {
 
   SendAddToCartEvent(){
 
-    this.dataLayer.push({
+    window["dataLayer"].push({
       'bookCategory': 'fiction',
       'bookTitle': 'Cien años de soledad',
       'bookAuthor': 'Gabriel García Márquez'
